@@ -193,6 +193,10 @@ function App() {
               </iframe>
             </motion.div>
 
+            <motion.p className="closing-text" variants={itemVariants}>
+              Sự hiện diện của gia đình, anh chị và các bạn là niềm vinh hạnh lớn nhất đối với Tài!
+            </motion.p>
+
             <motion.button 
               className="rsvp-btn"
               variants={itemVariants}

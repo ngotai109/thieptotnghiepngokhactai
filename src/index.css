@@ -349,6 +349,16 @@ body {
   background-color: #fdf4f6;
 }
 
+.closing-text {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
+  font-style: italic;
+  color: #d81b60;
+  margin: 1.5rem 0 0.5rem 0;
+  line-height: 1.5;
+  padding: 0 1rem;
+}
+
 .rsvp-btn::before {
   content: '';
   position: absolute;
