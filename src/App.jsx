@@ -61,8 +61,34 @@ function App() {
     visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } }
   };
 
+  // Generate random hearts
+  const hearts = Array.from({ length: 20 }).map((_, i) => ({
+    id: i,
+    left: Math.random() * 100 + 'vw',
+    animationDuration: Math.random() * 4 + 4 + 's', // 4s to 8s
+    animationDelay: Math.random() * 5 + 's',
+    fontSize: Math.random() * 1 + 0.8 + 'rem',
+    emoji: ['💖', '💕', '💗', '💓', '🌸'][Math.floor(Math.random() * 5)]
+  }));
+
   return (
     <div className="page-wrapper">
+      {/* Falling hearts background */}
+      {hearts.map(heart => (
+        <div 
+          key={heart.id} 
+          className="heart" 
+          style={{
+            left: heart.left,
+            animationDuration: heart.animationDuration,
+            animationDelay: heart.animationDelay,
+            fontSize: heart.fontSize
+          }}
+        >
+          {heart.emoji}
+        </div>
+      ))}
+
       <div className="invitation-container">
         
         <motion.div 
@@ -93,7 +119,7 @@ function App() {
             </motion.h3>
             
             <motion.h1 className="main-title" variants={itemVariants}>
-              Lễ Tốt Nghiệp
+              Graduation
             </motion.h1>
 
             <motion.h2 className="graduate-name" variants={itemVariants}>
