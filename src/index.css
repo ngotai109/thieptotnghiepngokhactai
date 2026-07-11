@@ -157,11 +157,13 @@ body {
 }
 
 .graduate-name {
-  font-family: 'Dancing Script', cursive;
-  font-size: 3.2rem;
+  font-family: 'Playfair Display', serif;
+  font-size: 2.2rem;
   color: #f06292; /* Soft pink name */
   margin-bottom: 1rem;
-  font-weight: 700;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
 }
 
 .divider {
