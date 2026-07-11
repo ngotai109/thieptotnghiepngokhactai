@@ -73,7 +73,7 @@ function App() {
     return {
       id: i,
       left: Math.random() * 100 + 'vw',
-      animationDuration: Math.random() * 12 + 10 + 's', // 10s to 22s for smooth slow fall
+      animationDuration: Math.random() * 7 + 5 + 's', // 5s to 12s for a natural fall
       animationDelay: Math.random() * 10 + 's',
       fontSize: content === 'Graduation' ? '1.2rem' : (Math.random() * 1.2 + 1 + 'rem'),
       content: content
