@@ -128,7 +128,7 @@ function App() {
             animate="visible"
           >
             <motion.h3 className="top-subtitle" variants={itemVariants}>
-              Đại Học Công Nghiệp Hà Nội
+              THIỆP MỜI DỰ LỄ TỐT NGHIỆP
             </motion.h3>
             
             <motion.h1 className="main-title" variants={itemVariants}>
