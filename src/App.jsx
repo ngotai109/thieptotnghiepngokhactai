@@ -76,7 +76,7 @@ function App() {
         left: Math.random() * 100 + 'vw',
         animationDuration: Math.random() * 7 + 5 + 's', // 5s to 12s for a natural fall
         animationDelay: Math.random() * 10 + 's',
-        fontSize: content === 'Graduation' ? '1.2rem' : (Math.random() * 1.2 + 1 + 'rem'),
+        fontSize: content === 'Happy Graduation' ? '1.2rem' : (Math.random() * 1.2 + 1 + 'rem'),
         content: content
       };
     });
@@ -94,8 +94,8 @@ function App() {
             animationDuration: item.animationDuration,
             animationDelay: item.animationDelay,
             fontSize: item.fontSize,
-            fontFamily: item.content === 'Graduation' ? "'Dancing Script', cursive" : "inherit",
-            color: item.content === 'Graduation' ? '#f06292' : 'inherit'
+            fontFamily: item.content === 'Happy Graduation' ? "'Dancing Script', cursive" : "inherit",
+            color: item.content === 'Happy Graduation' ? '#f06292' : 'inherit'
           }}
         >
           {item.content}
