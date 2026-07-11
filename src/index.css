@@ -38,7 +38,7 @@ body {
 .falling-item {
   position: fixed;
   top: -10vh;
-  z-index: 1;
+  z-index: 100;
   pointer-events: none;
   animation: fall linear infinite;
   opacity: 0;
