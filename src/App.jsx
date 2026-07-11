@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { motion } from 'framer-motion';
 import { GraduationCap } from 'lucide-react';
 import './index.css';
@@ -62,23 +62,25 @@ function App() {
     visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } }
   };
 
-  // Generate random falling items
-  const fallingItems = Array.from({ length: 30 }).map((_, i) => {
-    const rand = Math.random();
-    let content = '💖';
-    if (rand < 0.1) content = 'Graduation';
-    else if (rand < 0.35) content = '🎓';
-    else content = ['💖', '💕', '💗', '🌸', '✨'][Math.floor(Math.random() * 5)];
+  // Generate random falling items once using useMemo to prevent resetting animation on timer tick
+  const fallingItems = useMemo(() => {
+    return Array.from({ length: 30 }).map((_, i) => {
+      const rand = Math.random();
+      let content = '💖';
+      if (rand < 0.1) content = 'Graduation';
+      else if (rand < 0.35) content = '🎓';
+      else content = ['💖', '💕', '💗', '🌸', '✨'][Math.floor(Math.random() * 5)];
 
-    return {
-      id: i,
-      left: Math.random() * 100 + 'vw',
-      animationDuration: Math.random() * 7 + 5 + 's', // 5s to 12s for a natural fall
-      animationDelay: Math.random() * 10 + 's',
-      fontSize: content === 'Graduation' ? '1.2rem' : (Math.random() * 1.2 + 1 + 'rem'),
-      content: content
-    };
-  });
+      return {
+        id: i,
+        left: Math.random() * 100 + 'vw',
+        animationDuration: Math.random() * 7 + 5 + 's', // 5s to 12s for a natural fall
+        animationDelay: Math.random() * 10 + 's',
+        fontSize: content === 'Graduation' ? '1.2rem' : (Math.random() * 1.2 + 1 + 'rem'),
+        content: content
+      };
+    });
+  }, []);
 
   return (
     <div className="page-wrapper">
