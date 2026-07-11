@@ -133,7 +133,7 @@ function App() {
             
             <motion.h1 className="main-title" variants={itemVariants}>
               <GraduationCap size={48} color="#d81b60" style={{ display: 'block', margin: '0 auto 0.5rem' }} />
-              Graduation Party
+              Graduation <br /> Party
             </motion.h1>
 
             <motion.h2 className="graduate-name" variants={itemVariants}>

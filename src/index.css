@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&family=Dancing+Script:wght@500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&family=Dancing+Script:wght@500;600;700&family=Great+Vibes&display=swap');
 
 * {
   box-sizing: border-box;
@@ -152,9 +152,9 @@ body {
 }
 
 .main-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 3.5rem;
-  font-weight: 600;
+  font-family: 'Great Vibes', cursive;
+  font-size: 5rem;
+  font-weight: 400;
   line-height: 1.1;
   color: #d81b60; /* Deep pink title */
   margin-bottom: 0.5rem;
