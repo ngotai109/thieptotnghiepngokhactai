@@ -143,7 +143,7 @@ function App() {
             <motion.div className="divider" variants={itemVariants}></motion.div>
             
             <motion.p className="greeting" variants={itemVariants}>
-              Trân trọng kính mời gia đình, anh chị và các bạn đến chung vui cùng Tài trong ngày Lễ Tốt Nghiệp.
+              Trân trọng kính mời gia đình, Anh, Chị và các bạn đến chung vui cùng Tài trong ngày Lễ Tốt Nghiệp.
             </motion.p>
             
             <motion.div className="countdown-container" variants={itemVariants}>
@@ -196,7 +196,7 @@ function App() {
             </motion.div>
 
             <motion.p className="closing-text" variants={itemVariants}>
-              Sự hiện diện của gia đình, anh chị và các bạn là niềm vinh hạnh lớn nhất đối với Tài!
+              Sự hiện diện của gia đình, Anh, Chị và các bạn là niềm vinh hạnh lớn nhất đối với Tài!
             </motion.p>
 
             <motion.button 
