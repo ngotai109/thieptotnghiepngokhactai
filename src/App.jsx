@@ -97,7 +97,7 @@ function App() {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 1.2, ease: "easeOut" }}
         >
-          <div className="arch-frame">
+          <div className="heart-frame">
             <img src="/graduate-photo.png" alt="Graduate" />
           </div>
         </motion.div>
