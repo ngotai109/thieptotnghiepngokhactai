@@ -7,7 +7,7 @@ function App() {
   const [timeLeft, setTimeLeft] = useState({ ngày: 0, giờ: 0, phút: 0, giây: 0 });
 
   useEffect(() => {
-    const targetDate = new Date('2026-08-18T08:00:00');
+    const targetDate = new Date('2026-08-18T10:00:00');
 
     const timer = setInterval(() => {
       const difference = targetDate.getTime() - new Date().getTime();
@@ -162,7 +162,7 @@ function App() {
               <div className="details">
                 <div className="detail-row">
                   <span className="detail-label">Thời gian</span>
-                  <span className="detail-value">08:00 Sáng</span>
+                  <span className="detail-value">10:00 Sáng, Thứ 3</span>
                 </div>
                 <div className="detail-row">
                   <span className="detail-label">Địa điểm</span>
