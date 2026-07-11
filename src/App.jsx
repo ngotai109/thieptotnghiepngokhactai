@@ -30,8 +30,8 @@ function App() {
   const renderCalendar = () => {
     const days = ['CN', 'T2', 'T3', 'T4', 'T5', 'T6', 'T7'];
     // August 2026 starts on Saturday (index 6)
-    const blanks = Array(6).fill(null); 
-    const monthDays = Array.from({length: 31}, (_, i) => i + 1);
+    const blanks = Array(6).fill(null);
+    const monthDays = Array.from({ length: 31 }, (_, i) => i + 1);
     const totalSlots = [...blanks, ...monthDays];
 
     return (
@@ -51,7 +51,7 @@ function App() {
 
   const contentVariants = {
     hidden: { opacity: 0 },
-    visible: { 
+    visible: {
       opacity: 1,
       transition: { duration: 1, staggerChildren: 0.2 }
     }
@@ -67,7 +67,7 @@ function App() {
     return Array.from({ length: 30 }).map((_, i) => {
       const rand = Math.random();
       let content = '💖';
-      if (rand < 0.1) content = 'Graduation';
+      if (rand < 0.1) content = 'Happy Graduation';
       else if (rand < 0.35) content = '🎓';
       else content = ['💖', '💕', '💗', '🌸', '✨'][Math.floor(Math.random() * 5)];
 
@@ -86,9 +86,9 @@ function App() {
     <div className="page-wrapper">
       {/* Falling background items */}
       {fallingItems.map(item => (
-        <div 
-          key={item.id} 
-          className="falling-item" 
+        <div
+          key={item.id}
+          className="falling-item"
           style={{
             left: item.left,
             animationDuration: item.animationDuration,
@@ -103,8 +103,8 @@ function App() {
       ))}
 
       <div className="invitation-container">
-        
-        <motion.div 
+
+        <motion.div
           className="image-section"
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
@@ -115,13 +115,13 @@ function App() {
           </div>
         </motion.div>
 
-        <motion.div 
+        <motion.div
           className="content-section"
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 1.2, ease: "easeOut", delay: 0.2 }}
         >
-          <motion.div 
+          <motion.div
             className="decorative-border"
             variants={contentVariants}
             initial="hidden"
@@ -130,7 +130,7 @@ function App() {
             <motion.h3 className="top-subtitle" variants={itemVariants}>
               THIỆP MỜI DỰ LỄ TỐT NGHIỆP
             </motion.h3>
-            
+
             <motion.h1 className="main-title" variants={itemVariants}>
               <GraduationCap size={48} color="#d81b60" style={{ display: 'block', margin: '0 auto 0.5rem' }} />
               Graduation <br /> Party
@@ -139,13 +139,13 @@ function App() {
             <motion.h2 className="graduate-name" variants={itemVariants}>
               Ngô Khắc Tài
             </motion.h2>
-            
+
             <motion.div className="divider" variants={itemVariants}></motion.div>
-            
+
             <motion.p className="greeting" variants={itemVariants}>
               Trân trọng kính mời gia đình, Anh, Chị và các bạn đến chung vui cùng Tài trong ngày Lễ Tốt Nghiệp.
             </motion.p>
-            
+
             <motion.div className="countdown-container" variants={itemVariants}>
               <div className="countdown-item">
                 <span className="countdown-value">{timeLeft.ngày.toString().padStart(2, '0')}</span>
@@ -170,7 +170,7 @@ function App() {
 
             <motion.div className="info-row" variants={itemVariants}>
               {renderCalendar()}
-              
+
               <div className="details">
                 <div className="detail-row">
                   <span className="detail-label">Thời gian</span>
@@ -184,13 +184,13 @@ function App() {
             </motion.div>
 
             <motion.div className="map-container" variants={itemVariants}>
-              <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3723.4736632151066!2d105.73252651119284!3d21.053735986838664!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31345457e292d5bf%3A0x20ac91c94d74439a!2zVHLGsOG7nW5nIMSQ4bqhaSBo4buNYyBDw7RuZyBuZ2hp4buHcCBIw6AgTuG7mWk!5e0!3m2!1svi!2s!4v1783763989086!5m2!1svi!2s" 
-                width="100%" 
-                height="200" 
-                style={{ border: 0 }} 
-                allowFullScreen="" 
-                loading="lazy" 
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3723.4736632151066!2d105.73252651119284!3d21.053735986838664!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31345457e292d5bf%3A0x20ac91c94d74439a!2zVHLGsOG7nW5nIMSQ4bqhaSBo4buNYyBDw7RuZyBuZ2hp4buHcCBIw6AgTuG7mWk!5e0!3m2!1svi!2s!4v1783763989086!5m2!1svi!2s"
+                width="100%"
+                height="200"
+                style={{ border: 0 }}
+                allowFullScreen=""
+                loading="lazy"
                 referrerPolicy="strict-origin-when-cross-origin">
               </iframe>
             </motion.div>
@@ -199,7 +199,7 @@ function App() {
               Sự hiện diện của gia đình, Anh, Chị và các bạn là niềm vinh hạnh lớn nhất đối với Tài!
             </motion.p>
 
-            <motion.button 
+            <motion.button
               className="rsvp-btn"
               variants={itemVariants}
               whileHover={{ scale: 1.02 }}
