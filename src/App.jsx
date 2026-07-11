@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { GraduationCap } from 'lucide-react';
 import './index.css';
 
 function App() {
@@ -119,6 +120,7 @@ function App() {
             </motion.h3>
             
             <motion.h1 className="main-title" variants={itemVariants}>
+              <GraduationCap size={48} color="#d81b60" style={{ display: 'block', margin: '0 auto 0.5rem' }} />
               Graduation
             </motion.h1>
 
