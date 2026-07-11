@@ -138,7 +138,7 @@ function App() {
                 </div>
                 <div className="detail-row">
                   <span className="detail-label">Địa điểm</span>
-                  <span className="detail-value">Khu A<br/>Đại Học Công Nghiệp Hà Nội</span>
+                  <span className="detail-value">Khu A, Đại Học Công Nghiệp Hà Nội</span>
                 </div>
               </div>
             </motion.div>

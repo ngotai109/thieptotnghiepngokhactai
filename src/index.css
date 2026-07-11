@@ -219,9 +219,10 @@ body {
 
 .detail-value {
   font-family: 'Playfair Display', serif;
-  font-size: 1.2rem;
+  font-size: 1.15rem;
   color: #222;
   font-weight: 500;
+  line-height: 1.4;
 }
 
 /* Calendar */
