@@ -36,7 +36,7 @@ function App() {
 
     return (
       <div className="calendar">
-        <div className="calendar-header">THÁNG 8 . 2026</div>
+        <div className="calendar-header">THÁNG 8 • 2026</div>
         <div className="calendar-grid">
           {days.map(d => <div key={d} className="cal-day-name">{d}</div>)}
           {totalSlots.map((d, i) => (
