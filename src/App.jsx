@@ -62,31 +62,41 @@ function App() {
     visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } }
   };
 
-  // Generate random hearts
-  const hearts = Array.from({ length: 20 }).map((_, i) => ({
-    id: i,
-    left: Math.random() * 100 + 'vw',
-    animationDuration: Math.random() * 4 + 4 + 's', // 4s to 8s
-    animationDelay: Math.random() * 5 + 's',
-    fontSize: Math.random() * 1 + 0.8 + 'rem',
-    emoji: ['💖', '💕', '💗', '💓', '🌸'][Math.floor(Math.random() * 5)]
-  }));
+  // Generate random falling items
+  const fallingItems = Array.from({ length: 30 }).map((_, i) => {
+    const rand = Math.random();
+    let content = '💖';
+    if (rand < 0.1) content = 'Graduation';
+    else if (rand < 0.35) content = '🎓';
+    else content = ['💖', '💕', '💗', '🌸', '✨'][Math.floor(Math.random() * 5)];
+
+    return {
+      id: i,
+      left: Math.random() * 100 + 'vw',
+      animationDuration: Math.random() * 12 + 10 + 's', // 10s to 22s for smooth slow fall
+      animationDelay: Math.random() * 10 + 's',
+      fontSize: content === 'Graduation' ? '1.2rem' : (Math.random() * 1.2 + 1 + 'rem'),
+      content: content
+    };
+  });
 
   return (
     <div className="page-wrapper">
-      {/* Falling hearts background */}
-      {hearts.map(heart => (
+      {/* Falling background items */}
+      {fallingItems.map(item => (
         <div 
-          key={heart.id} 
-          className="heart" 
+          key={item.id} 
+          className="falling-item" 
           style={{
-            left: heart.left,
-            animationDuration: heart.animationDuration,
-            animationDelay: heart.animationDelay,
-            fontSize: heart.fontSize
+            left: item.left,
+            animationDuration: item.animationDuration,
+            animationDelay: item.animationDelay,
+            fontSize: item.fontSize,
+            fontFamily: item.content === 'Graduation' ? "'Dancing Script', cursive" : "inherit",
+            color: item.content === 'Graduation' ? '#f06292' : 'inherit'
           }}
         >
-          {heart.emoji}
+          {item.content}
         </div>
       ))}
 
