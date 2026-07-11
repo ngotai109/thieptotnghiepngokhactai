@@ -329,6 +329,7 @@ body {
   }
   .arch-frame {
     height: 450px;
+    max-width: 350px;
   }
   .info-row {
     flex-direction: column;
@@ -337,5 +338,57 @@ body {
   .details {
     text-align: center;
     align-items: center;
+  }
+  .countdown-container {
+    width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .page-wrapper {
+    padding: 1rem;
+  }
+  .image-section {
+    padding: 1.5rem;
+  }
+  .arch-frame {
+    height: 350px;
+    max-width: 280px;
+    border-width: 6px;
+  }
+  .content-section {
+    padding: 1rem;
+  }
+  .decorative-border {
+    padding: 1.5rem 1rem;
+  }
+  .main-title {
+    font-size: 2.2rem;
+  }
+  .graduate-name {
+    font-size: 1.8rem;
+  }
+  .greeting {
+    font-size: 0.85rem;
+    max-width: 95%;
+  }
+  .countdown-container {
+    gap: 0.5rem;
+    padding: 0.5rem 0;
+  }
+  .countdown-value {
+    font-size: 1.5rem;
+  }
+  .countdown-label {
+    font-size: 0.5rem;
+  }
+  .calendar {
+    width: 100%;
+    max-width: 280px;
+  }
+  .rsvp-btn {
+    padding: 1rem 2rem;
+    font-size: 0.75rem;
+    width: 100%;
   }
 }
