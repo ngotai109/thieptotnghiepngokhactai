@@ -1,10 +1,44 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { motion } from 'framer-motion';
 import { GraduationCap } from 'lucide-react';
+import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
+import { db } from './firebase';
 import './index.css';
 
 function App() {
   const [timeLeft, setTimeLeft] = useState({ ngày: 0, giờ: 0, phút: 0, giây: 0 });
+  const [showRsvp, setShowRsvp] = useState(false);
+  const [rsvpData, setRsvpData] = useState({ name: '', message: '' });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitSuccess, setSubmitSuccess] = useState(false);
+
+  const handleRsvpSubmit = async (e) => {
+    e.preventDefault();
+    if (!rsvpData.name || !rsvpData.message) {
+      alert("Vui lòng nhập đầy đủ tên và lời chúc của bạn nhé!");
+      return;
+    }
+    
+    setIsSubmitting(true);
+    try {
+      await addDoc(collection(db, "rsvps"), {
+        name: rsvpData.name,
+        message: rsvpData.message,
+        createdAt: serverTimestamp()
+      });
+      setSubmitSuccess(true);
+      setTimeout(() => {
+        setShowRsvp(false);
+        setSubmitSuccess(false);
+        setRsvpData({ name: '', message: '' });
+      }, 3000);
+    } catch (error) {
+      console.error("Error adding document: ", error);
+      alert("Có lỗi xảy ra, vui lòng thử lại sau!");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   useEffect(() => {
     const targetDate = new Date('2026-08-18T10:00:00');
@@ -204,6 +238,7 @@ function App() {
               variants={itemVariants}
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
+              onClick={() => setShowRsvp(true)}
             >
               <span>Xác Nhận Tham Dự</span>
             </motion.button>
@@ -211,6 +246,56 @@ function App() {
         </motion.div>
 
       </div>
+      
+      {/* RSVP Modal */}
+      {showRsvp && (
+        <div className="modal-overlay">
+          <motion.div 
+            className="modal-content"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.8 }}
+          >
+            <button className="close-btn" onClick={() => setShowRsvp(false)}>✕</button>
+            
+            {submitSuccess ? (
+              <div className="success-message">
+                <h3 style={{fontFamily: "'Playfair Display', serif", color: "#d81b60", marginBottom: "1rem"}}>Cảm ơn bạn! 🎉</h3>
+                <p>Thông tin của bạn đã được ghi nhận thành công.</p>
+              </div>
+            ) : (
+              <>
+                <h3 className="modal-title">Xác Nhận Tham Dự</h3>
+                <form onSubmit={handleRsvpSubmit}>
+                  <div className="form-group">
+                    <label>Tên của bạn *</label>
+                    <input 
+                      type="text" 
+                      placeholder="Nhập tên..." 
+                      value={rsvpData.name}
+                      onChange={(e) => setRsvpData({...rsvpData, name: e.target.value})}
+                      required
+                    />
+                  </div>
+                  <div className="form-group">
+                    <label>Lời chúc cho Tài *</label>
+                    <textarea 
+                      placeholder="Nhập lời chúc..." 
+                      rows="3"
+                      value={rsvpData.message}
+                      onChange={(e) => setRsvpData({...rsvpData, message: e.target.value})}
+                      required
+                    ></textarea>
+                  </div>
+                  <button type="submit" className="submit-btn" disabled={isSubmitting}>
+                    {isSubmitting ? "Đang gửi..." : "Gửi Xác Nhận"}
+                  </button>
+                </form>
+              </>
+            )}
+          </motion.div>
+        </div>
+      )}
     </div>
   );
 }
