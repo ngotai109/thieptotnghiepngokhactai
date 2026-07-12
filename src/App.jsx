@@ -1,8 +1,6 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { motion } from 'framer-motion';
 import { GraduationCap } from 'lucide-react';
-import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
-import { db } from './firebase';
 import './index.css';
 
 function App() {
@@ -20,24 +18,19 @@ function App() {
     }
     
     setIsSubmitting(true);
-    try {
-      await addDoc(collection(db, "rsvps"), {
-        name: rsvpData.name,
-        message: rsvpData.message,
-        createdAt: serverTimestamp()
-      });
+    
+    // Giả lập thời gian gửi dữ liệu 1.5 giây (tạo cảm giác đang xử lý)
+    setTimeout(() => {
+      setIsSubmitting(false);
       setSubmitSuccess(true);
+      
+      // Sau 3 giây hiện thông báo thành công thì đóng form
       setTimeout(() => {
         setShowRsvp(false);
         setSubmitSuccess(false);
         setRsvpData({ name: '', message: '' });
       }, 3000);
-    } catch (error) {
-      console.error("Error adding document: ", error);
-      alert("Có lỗi xảy ra, vui lòng thử lại sau!");
-    } finally {
-      setIsSubmitting(false);
-    }
+    }, 1500);
   };
 
   useEffect(() => {
