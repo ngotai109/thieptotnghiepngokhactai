@@ -79,17 +79,38 @@ body {
   border-right: 1px solid #fce4ec;
 }
 
+@keyframes pulseGlow {
+  0% {
+    box-shadow: 0 0 15px rgba(244, 143, 177, 0.4), inset 0 0 15px rgba(244, 143, 177, 0.4);
+    border-color: #fce4ec;
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(216, 27, 96, 0.6), inset 0 0 25px rgba(216, 27, 96, 0.4);
+    border-color: #f8bbd0;
+  }
+  100% {
+    box-shadow: 0 0 15px rgba(244, 143, 177, 0.4), inset 0 0 15px rgba(244, 143, 177, 0.4);
+    border-color: #fce4ec;
+  }
+}
+
 .circle-frame {
   width: 100%;
   max-width: 400px;
   aspect-ratio: 1 / 1;
   position: relative;
   border-radius: 50%;
-  border: 10px solid #fce4ec; /* Soft pink border */
-  box-shadow: 0 15px 30px rgba(216, 27, 96, 0.2);
+  border: 8px solid #fce4ec; /* Soft pink border */
   margin: 0 auto;
   overflow: hidden;
   box-sizing: border-box;
+  animation: pulseGlow 3s ease-in-out infinite;
+  transition: all 0.3s ease;
+}
+
+.circle-frame:hover {
+  transform: scale(1.02);
+  animation-duration: 1.5s;
 }
 
 .circle-frame img {
